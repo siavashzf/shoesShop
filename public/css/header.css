@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: Far_Casablanca;
+	src: url("../fonts/Far_Casablanca/Far_Casablanca.ttf");
+}
+
+.hiden {
+	visibility: hidden;
+}
+
+.trns {
+	transition: transform 500ms;
+}
+.trns:hover {
+	transform: scale(1.2);
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+header {
+	width: 100%;
+}
+
+.head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 45px;
+	background-color: rgb(0, 0, 0);
+	padding: 0px 5%;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.descript {
+	color: rgb(255, 255, 255);
+	font-size: 15px;
+}
+
+.head ul {
+	display: flex;
+}
+
+.head ul a {
+	margin: 20px;
+	color: rgb(236, 236, 236);
+	font-size: 15px;
+}
+
+/* nav */
+
+nav {
+	position: relative;
+	background-color: #f6f5f5;
+}
+
+.navbar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	background-color: rgb(236, 236, 236);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	padding: 0px 4%;
+}
+
+.descriptTwo {
+	color: rgb(0, 0, 0);
+	font-size: 25px;
+	padding: 5px;
+}
+#nav-main {
+	padding: 10px;
+}
+.nav-icons {
+	padding: 10px;
+}
+#nav-main a {
+	margin: 18px;
+	color: rgb(0, 0, 0);
+}
+#nav-main > a:hover {
+	border-bottom: 2px solid red;
+}
+
+.navbar ul {
+	display: flex;
+}
+
+.navbar ul li a {
+	margin: 15px;
+	padding-bottom: 10;
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+}
+
+.active {
+	border-bottom: 2px solid red;
+}
+
+.nav-icons li {
+	margin: 14px;
+}
+
+.nav-icons li:nth-child(3) {
+	margin-right: 0;
+}
+
+/* section */

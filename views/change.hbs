@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/change.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <header>
+        <div class="head">
+            <a href="#" class="descript">{{data.header.des}}</a>
+            <ul>
+                {{#each data.header.left}}
+                    <li class="trns"><a href="#">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <div class="navbar">
+            <a href="#" class="descriptTwo">{{data.nav.first}}</a>
+
+            <ul class="nav-icons">
+                {{#each data.nav.navIcons}}
+                    <li><i class="{{title}}">{{value}}</i></li>
+                {{/each}}
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div id="container">
+            <div class="boxing">
+                <img height="285px" class="img-box" src="{{caseObject.im.srcimg}}" alt="">
+                <div class="details-box">
+                    <p>{{caseObject.im.title}}</p>
+                    <div>
+                        {{#each caseObject.im.detailsBox}}
+                            <span class="{{title}}"></span>
+                        {{/each}}
+                    </div>
+                    <p>${{caseObject.im.price}}</p>
+                </div>  
+                <div id="formTable">
+                    <form action="/" method="get">
+                        <button style="padding: 3px 5px 7px;">انصراف</button>
+                    </form> 
+                    <form action="/item/{{caseObject.im.number}}?_method=DELETE" method="POST">
+                        <button style="padding: 3px 5px 7px; margin-left: 10px;">حذف</button>
+                    </form>  
+                </div>  
+            </div>
+
+            <div >
+                <form  class="form" action="/item/{{caseObject.im.number}}?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <input type="name" name="name" placeholder="نام کالا (اختیاری)"/>
+                    <label for="stars">: مقدار رضایت از 0 تا 5</label>
+                    <input type="range" name="stars" min="0" max="5" />
+                    <input type="number" placeholder="(اجباری) قیمت" min="0" step="0.01" name="price" required="true"/>
+
+                    <div id="radio-grup">
+                        <label for="radio1">فروش:</label><input type="radio" id="radio1" name="lable" value="lable-black"><br>
+                        <label for="radio2">جدید:</label><input type="radio" id="radio2" name="lable" value="lable-white"><br>
+                        <label for="radio3">بدون لیبل:</label><input type="radio" id="radio3" name="lable" value="hiden" checked>
+                    </div>
+                    
+
+                    <label for="fileupload">وارد کردن عکس اختیاری است</label>
+                    <input type="file" name="fileupload" id="fileupload"/>
+                    <button>اعمال تغییرات</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

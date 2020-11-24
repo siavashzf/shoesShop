@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <header>
+        <div class="head">
+            <a href="#" class="descript">{{data.header.des}}</a>
+            <ul>
+                {{#each data.header.left}}
+                    <li class="trns"><a href="#">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <div class="navbar">
+            <a href="#" class="descriptTwo">{{data.nav.first}}</a>
+            <div id="nav-main">
+                {{#each data.nav.navMain}}
+                    <a href="{{url}}" class="{{Active}}">{{title}}</a>
+                {{/each}}
+            </div>
+            <ul class="nav-icons">
+                {{#each data.nav.navIcons}}
+                    <li><i class="{{title}}">{{value}}</i></li>
+                {{/each}}
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div id="container">
+            <div id="contact">
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis illum consectetur esse id commodi vitae?
+                Deleniti voluptates iure voluptatum delectus nulla impedit quam odit repellendus maiores,
+                accusantium id, quo asperiores?
+                </p>
+                <p style="text-align: right;">:شبکه های مجازی ما برای ارتباط با مشتریان</p>
+                <div class="social-icons">
+                    <ul>
+                        {{#each data.section.socialIcons}}
+                        <li><i class="{{title}}"></i></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
