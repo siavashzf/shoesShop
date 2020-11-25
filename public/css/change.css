@@ -80,7 +80,7 @@
 	.head {
 		display: block;
 		text-align: center;
-		height: 105px;
+		height: 120px; 
 		background-color: rgb(0, 0, 0);
 		padding: 10px 5%;
 	}
@@ -97,7 +97,7 @@
 	/* nav */
 	
 	nav {
-		height: 45vh;
+		height: unset;
 	}
 
 	#nav-main a {

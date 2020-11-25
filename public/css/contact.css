@@ -67,7 +67,7 @@
 	/* nav */
 	
 	nav {
-		height: 45vh;
+		height: unset;
 	}
 
 	#nav-main a {
