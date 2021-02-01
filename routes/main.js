@@ -28,12 +28,14 @@ function setlinkDecoration (route){
 
 router.get('/admin', require("../config/auth").ensureAuth,(req, res) => {
     setlinkDecoration('/');
+    const username = req.user.name;
     res.render('admin', {
-        data
+        data,username
     })
 });
 
 router.get('/',(req, res) => {
+    
     setlinkDecoration('/');
     res.render('index.hbs', {
         data

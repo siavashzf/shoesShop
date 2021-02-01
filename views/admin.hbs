@@ -12,7 +12,13 @@
     <header>
         <div class="head">
             <a href="#" class="descript">{{data.header.des}}</a>
-            <a href="/register/logout" style="background-color: red;color: black;display: block;"> logOut</a>
+            <a href="/register/logout" style="background-color: red;color: black;display: block;block;padding: 2px;
+            margin: 2px;"">
+            logOut
+            {{#if username}}
+            {{username}} 
+            {{/if}}
+            </a>
             <ul>
                 {{#each data.header.left}}
                     <li class="trns"><a href="#">{{title}}</a></li>
