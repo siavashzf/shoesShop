@@ -23,18 +23,19 @@ router.post("/login",(req,res,next)=>{
     
 })
 
-router.get("/signIn",(req,res)=>{
-    res.render('signIn')
+router.get("/signup",(req,res)=>{
+    res.render('signup')
 })
 router.get("/logout",(req,res)=>{
-
+    req.flash('success_msg',req.user);
     req.logout();
 
     req.flash('success_msg','you are logOut !!!');
+    req.flash('success_msg',req.user);
     res.redirect('login');
 })
 
-router.post("/signIn",(req,res)=>{
+router.post("/signup",(req,res)=>{
    console.log(req.body); 
    const {name, email,password,confirmPassword }=req.body;
    let errors=[];
@@ -51,13 +52,13 @@ router.post("/signIn",(req,res)=>{
     errors.push({msg:'passwords should biger than 8 char'});
    }
    if(errors.length>0){
-       res.render("signIn",{errors,name ,email,password ,confirmPassword});
+       res.render("signup",{errors,name ,email,password ,confirmPassword});
    }else{
         User.findOne({email:email})
         .then(user=>{
             if(user){
             errors.push({msg:'this email already exist'});
-            res.render("signIn",{errors,name ,email,password ,confirmPassword});
+            res.render("signup",{errors,name ,email,password ,confirmPassword});
             }
             else{
                 const newUser= new User({name ,email,password});
@@ -69,7 +70,7 @@ router.post("/signIn",(req,res)=>{
                         newUser.password=hash;
                         newUser.save()
                         .then(user=>{
-                            req.flash('success_msg',"you are sign in")
+                            req.flash('success_msg',"you are sign up")
                             res.redirect('login')
                         })
                         .catch(err=>console.log(err))

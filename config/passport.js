@@ -15,7 +15,7 @@ module.exports=function (passport) {
        .then(user=>{
         
            if(!user){ 
-               return done(null ,false,{message:'that email not sign in'});
+               return done(null ,false,{message:'that email not sign up'});
               
            }
            //Match password

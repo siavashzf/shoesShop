@@ -40,7 +40,7 @@
 
 <div>
 
-    <form action="/register/signIn" method="POST">
+    <form action="/register/signup" method="POST">
         
         {{#each errors}}
             <h1 class="err">{{msg}}</h1>
@@ -49,7 +49,7 @@
         email : <br><input type="email" name="email" value="{{email}}"><br>
         password  : <br><input type="password" name="password" value="{{password}}"><br>
         confirm password  : <br><input type="password" name="confirmPassword" value="{{confirmPassword}}"><br>
-       <input type="submit" value="sign in"><br>
+       <input type="submit" value="sign up"><br>
         <a href="/register/login">log in </a>
     </form>
 </div>
