@@ -26,12 +26,20 @@ function setlinkDecoration (route){
     }
 }
 
-router.get('/', (req, res) => {
+router.get('/admin', require("../config/auth").ensureAuth,(req, res) => {
+    setlinkDecoration('/');
+    res.render('admin', {
+        data
+    })
+});
+
+router.get('/',(req, res) => {
     setlinkDecoration('/');
     res.render('index.hbs', {
         data
     })
 });
+
 router.get('/pages', (req, res) => {
     setlinkDecoration('/pages');
     res.render('pages.hbs', {

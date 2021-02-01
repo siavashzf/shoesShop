@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        *{
+            font-size: large;
+        }
+        form{
+            background-color: bisque;
+             padding: 20px;
+        }
+        input{
+            margin: 10px;
+            padding: 10px;
+            
+        }
+        div{
+            display: flex;
+            justify-content: center;
+        }
+        .err{
+            background-color: red;
+            color: black;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+
+
+
+<div>
+
+    <form action="/register/signIn" method="POST">
+        
+        {{#each errors}}
+            <h1 class="err">{{msg}}</h1>
+        {{/each}}
+        name : <br><input type="text" name="name" value="{{name}}"><br>
+        email : <br><input type="email" name="email" value="{{email}}"><br>
+        password  : <br><input type="password" name="password" value="{{password}}"><br>
+        confirm password  : <br><input type="password" name="confirmPassword" value="{{confirmPassword}}"><br>
+       <input type="submit" value="sign in"><br>
+        <a href="/register/login">log in </a>
+    </form>
+</div>
+
+</body>
+</html>

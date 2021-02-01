@@ -1,0 +1,195 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <header>
+        <div class="head">
+            <a href="#" class="descript">{{data.header.des}}</a>
+            <a href="/register/logout" style="background-color: red;color: black;display: block;"> logOut</a>
+            <ul>
+                {{#each data.header.left}}
+                    <li class="trns"><a href="#">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <div class="navbar">
+            <a href="#" class="descriptTwo">{{data.nav.first}}</a>
+            <div id="nav-main">
+                {{#each data.nav.navMain}}
+                    <a href="{{url}}" class="{{Active}}">{{title}}</a>
+                {{/each}}
+            </div>
+            <ul class="nav-icons">
+                {{#each data.nav.navIcons}}
+                    <li><i class="{{title}}">{{value}}</i></li>
+                {{/each}}
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div>
+            
+            <div class="text-container">
+                <p>مجموعه تابستانی</p>
+                <p>پاییز - زمستان <br>مجموعه 2030</p>
+                <p>یک برچسب خاص که ملزومات لوکس را ایجاد می کند <br>
+                    اخلاقی ساخته شده با تعهدی تزلزل ناپذیر به کیفیت استثنایی</p>
+                <button class="shop-now trns">الان بخر  &#8594;</button>
+            </div>
+            <div class="model">
+                <div class="model-img"></div>
+            </div>
+            <div class="social-icons">
+                <ul>
+                    {{#each data.section.socialIcons}}
+                    <li><i class="{{title}}"></i></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="services">
+            <div class="services-text">
+                <p>تجهیزات جانبی</p>
+                <p>الان بخر</p>
+                <div id="search">
+                    <form action="/search" method="POST">
+                        <input type="number" min="0" name="priceone" placeholder="حداقل قیمت" required="true">
+                        <input type="number" min="1" name="pricetwo" placeholder="حداکثر قیمت" required="true">
+                        <button>جستوجو</button>
+                    </form>
+                </div>
+            </div>
+            <div class="box-container">
+                <div class="prodact">
+                    {{#each data.one}}
+                        <div class="boxing">
+                            <form action="/item/{{im.number}}?_method=DELETE" method="POST">
+                                <button>{{im.del}}</button>
+                            </form>
+                            <span class="{{im.lableCss}}">{{im.lableVal}}</span>
+                            <img height="285px" class="img-box" src="{{im.srcimg}}" alt="">
+                            <div class="details-box">
+                                <p>{{im.title}}</p>
+                                <div>
+                                    {{#each im.detailsBox}}
+                                        <span class="{{title}}"></span>
+                                        {{/each}}
+                                </div>
+                                <p>${{im.price}}</p>
+                            </div>  
+                            <form action="/{{im.number}}/change" method="POST">
+                                <button style="padding: 3px 5px 7px;">{{im.change}}</button>
+                            </form>     
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="addElement">
+                    <p>: فرم اضافه کردن محصول دلخواه</p>
+                    <div class="form">
+                        <form action="/item" method="POST" enctype="multipart/form-data">
+                            <input type="text" placeholder="نوع محصول" name="name" required="true"/>
+                            <input type="number" placeholder="قیمت" min="10" name="price" required="true"/>
+                            <input type="file" name="fileupload" required="true" id="fileupload"/>
+                            <button>ایجاد کردن محصول</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shopTimer">
+            <div class="shopTimer-container">
+                <div class="Title-shop">
+                    <p>لباس گرم</p>
+                    <p>مجموعه کفش ها</p>
+                    <p>تجهیزات جانبی</p>
+                </div>
+                <div class="Image-shop"></div>
+                <div class="Timer-shop">
+                    <p>معامله هفته</p>
+                    <p>قفسه چند کاره <br>کیف سیاه</p>
+                    <p>30 : 06 : 13 : 17</p>
+                    <p>ثانیه دقیقه ساعت روز</p>
+                    <button class="shop-now">الان بخر</button>
+                </div>
+            </div>
+        </div>
+        <div class="picture-box">
+
+            <div class="instagram-img">
+                {{#each data.section.instagramImg}}
+                    <img src="{{source}}"  class="{{title}}" alt="">
+                {{/each}}
+            </div>
+
+            <div class="details-img">
+                <p>اینستاگرام</p>
+                <p>هر آنچه که نیاز دارید و به ذهن شما خطور می‌کند<br>
+                    در اینجا پیدا خواهید کرد</p>
+                <p>فشن-روز#</p>
+            </div>
+            
+        </div>
+        <div class="last-news">
+            <p>اخرین اخبار</p>
+            <p>رویدادهای جدید دنیای مد</p>
+        </div>
+        <div class="news-container">
+            {{#each data.section.newsBoxing}}
+                <div class="news-boxing">
+                    <img src="{{source}}" class="news-sec">
+                    <div class="news-box">
+                        <div class="news-details">
+                            <p>{{des1}} <i class="fa fa-calendar"></i></p>
+                            <p>{{des2}}</p>
+                            <p>{{des3}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+    <footer>
+        <div class="footer-up">
+            <div class="footer-text">
+                <p>مد لباس</p>
+                <p id="customer">مشتریان می توانند با درگاه های بانکی خریداری کنند
+                </p>
+                <div class="banks">
+                    {{#each data.footer.Banks}}
+                        <img src="{{title}}" class="bank-img">
+                    {{/each}}
+                </div>
+            </div>
+            <div  class="footer-text">
+                {{#each data.footer.footerText}}
+                    <p>{{title}}</p>
+                {{/each}}
+            </div>
+            <div class="footer-text">
+                {{#each data.footer.footerText2}}
+                    <p>{{title}}</p>
+                {{/each}}
+            </div>
+            <div class="footer-text">
+                <p>معرفی نامه</p>
+                <p>اولین نفر در مد لباس - فروش و گارانتی</p>
+                <div class="customer-email">
+                    <input class="input-field" type="text" placeholder="ایمیل شما" name="email">
+                    <i class="fa fa-envelope icon"></i>
+                </div>
+            </div>
+        </div>
+        <hr style="width: 85%; color: rgb(48, 48, 48);">
+        <div class="footer-down">{{data.footer.footerDown}}</div>
+    </footer>
+</body>
+</html>

@@ -4,7 +4,7 @@ const data = require('../models/data');
 const router = express.Router();
 
 
-router.put('/:id', (req, res) => {
+router.put('/:id',require("../config/auth").ensureAuth, (req, res) => {
     // res.send(req.body.stars, typeof(req.body.stars))
     const Products = data.one[req.params.id];
 
@@ -86,10 +86,10 @@ router.put('/:id', (req, res) => {
     }
     // res.send(Products.im.price);
     // res.send((stars).toString());
-    res.redirect('/');
+    res.redirect('/admin');
 });
 
-router.post('/', (req, res) => {
+router.post('/',require("../config/auth").ensureAuth, (req, res) => {
     const Products = data.one;
     const name = (req.body.name).toString();
     const price = req.body.price;
@@ -117,10 +117,10 @@ router.post('/', (req, res) => {
             }
         }
     )
-    res.redirect('/');
+    res.redirect('/admin');
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', require("../config/auth").ensureAuth,(req, res) => {
     const number = parseInt(req.params.id);
     const datats = data.one;
     const found = datats.some((element) => {
@@ -141,8 +141,9 @@ router.delete('/:id', (req, res) => {
     else {
         res.send("404 page not fount");
     }
-    res.redirect('/');
+    res.redirect('/admin');
 });
+
 
 
 module.exports = router

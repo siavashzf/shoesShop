@@ -12,6 +12,10 @@
     <header>
         <div class="head">
             <a href="#" class="descript">{{data.header.des}}</a>
+            <a href="/register/login" style="background-color: green;color: black;display: block;padding: 2px;
+            margin: 2px;"> login</a>
+            <a href="/register/signIn" style="background-color: green;color: black;display: block;padding: 2px;
+            margin: 2px;"> signIn</a>
             <ul>
                 {{#each data.header.left}}
                     <li class="trns"><a href="#">{{title}}</a></li>
@@ -71,9 +75,7 @@
                 <div class="prodact">
                     {{#each data.one}}
                         <div class="boxing">
-                            <form action="/item/{{im.number}}?_method=DELETE" method="POST">
-                                <button>{{im.del}}</button>
-                            </form>
+
                             <span class="{{im.lableCss}}">{{im.lableVal}}</span>
                             <img height="285px" class="img-box" src="{{im.srcimg}}" alt="">
                             <div class="details-box">
@@ -85,23 +87,11 @@
                                 </div>
                                 <p>${{im.price}}</p>
                             </div>  
-                            <form action="/{{im.number}}/change" method="POST">
-                                <button style="padding: 3px 5px 7px;">{{im.change}}</button>
-                            </form>     
+   
                         </div>
                     {{/each}}
                 </div>
-                <div class="addElement">
-                    <p>: فرم اضافه کردن محصول دلخواه</p>
-                    <div class="form">
-                        <form action="/item" method="POST" enctype="multipart/form-data">
-                            <input type="text" placeholder="نوع محصول" name="name" required="true"/>
-                            <input type="number" placeholder="قیمت" min="10" name="price" required="true"/>
-                            <input type="file" name="fileupload" required="true" id="fileupload"/>
-                            <button>ایجاد کردن محصول</button>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="shopTimer">
