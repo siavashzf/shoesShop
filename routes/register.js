@@ -27,11 +27,9 @@ router.get("/signIn",(req,res)=>{
     res.render('signIn')
 })
 router.get("/logout",(req,res)=>{
-    console.log(req.user); 
-    console.log(req.isAuthenticated());
+
     req.logout();
-    console.log(req.user); 
-    console.log(req.isAuthenticated());
+
     req.flash('success_msg','you are logOut !!!');
     res.redirect('login');
 })
