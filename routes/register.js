@@ -31,7 +31,7 @@ router.get("/logout",(req,res)=>{
     req.logout();
 
     req.flash('success_msg','you are logOut !!!');
-    req.flash('success_msg',req.user);
+    req.flash('success_msg',String(req.user));
     res.redirect('login');
 })
 
